@@ -30,13 +30,10 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final NumberFormat formatter = NumberFormat.simpleCurrency(
-        decimalDigits: 0, locale: Localizations.localeOf(context).toString());
     final ThemeData theme = Theme.of(context);
 
     final imageWidget = Image.asset(
       product.assetName,
-      package: product.assetPackage,
       fit: BoxFit.cover,
     );
 
@@ -64,7 +61,7 @@ class ProductCard extends StatelessWidget {
               ),
               const SizedBox(height: 4.0),
               Text(
-                formatter.format(product.price),
+                product.hargaRupiah,
                 style: theme.textTheme.bodySmall,
               ),
             ],

@@ -11,6 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+import 'package:intl/intl.dart';
 
 enum Category {
   all,
@@ -34,8 +35,12 @@ class Product {
   final String name;
   final int price;
 
-  String get assetName => '$id-0.jpg';
-  String get assetPackage => 'shrine_images';
+  String get assetName => 'assets/foto/$id-0.jpg';
+
+  String get hargaRupiah {
+    final formatter = NumberFormat("#,###", "id_ID");
+    return "Rp ${formatter.format(price)}";
+  }
 
   @override
   String toString() => "$name (id=$id)";
