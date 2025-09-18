@@ -16,6 +16,8 @@ import 'package:flutter/material.dart';
 
 import 'home.dart';
 import 'login.dart';
+import 'colors.dart';
+import 'supplemental/cut_corners_border.dart';
 
 // TODO: Convert ShrineApp to stateful widget (104)
 class ShrineApp extends StatelessWidget {
@@ -35,10 +37,67 @@ class ShrineApp extends StatelessWidget {
         // TODO: Change backLayer field value to CategoryMenuPage (104)
       },
       // TODO: Customize the theme (103)
-      theme: ThemeData.light(useMaterial3: true),
+      theme: _kShrineTheme, // New code
     );
   }
 }
 
 // TODO: Build a Shrine Theme (103)
+final ThemeData _kShrineTheme = _buildShrineTheme();
+// TODO: Build a Shrine Text Theme (103)
+TextTheme _buildShrineTextTheme(TextTheme base) {
+  return base
+      .copyWith(
+        headlineSmall: base.headlineSmall!.copyWith(
+          fontWeight: FontWeight.w500,
+        ),
+        titleLarge: base.titleLarge!.copyWith(
+          fontSize: 18.0,
+        ),
+        bodySmall: base.bodySmall!.copyWith(
+          fontWeight: FontWeight.w400,
+          fontSize: 14.0,
+        ),
+        bodyLarge: base.bodyLarge!.copyWith(
+          fontWeight: FontWeight.w500,
+          fontSize: 16.0,
+        ),
+      )
+      .apply(
+        fontFamily: 'Rubik',
+        displayColor: kShrineBrown900,
+        bodyColor: kShrineBrown900,
+      );
+}
+
+ThemeData _buildShrineTheme() {
+  final ThemeData base = ThemeData.light();
+  return base.copyWith(
+    colorScheme: base.colorScheme.copyWith(
+      primary: kShrineBrown400,
+      secondary: kShrineBrown200,
+      error: kShrineErrorRed,
+    ),
+    scaffoldBackgroundColor: kShrineSurfaceWhite,
+    textSelectionTheme: const TextSelectionThemeData(
+      selectionColor: kShrineBrown600,
+    ),
+    appBarTheme: const AppBarTheme(
+      foregroundColor: kShrineSurfaceWhite,
+      backgroundColor: kShrineBrown600,
+    ),
+    inputDecorationTheme: const InputDecorationTheme(
+      border: CutCornersBorder(),
+      focusedBorder: CutCornersBorder(
+        borderSide: BorderSide(
+          width: 2.0,
+          color: kShrineBrown400,
+        ),
+      ),
+      floatingLabelStyle: TextStyle(
+        color: kShrineBrown400,
+      ),
+    ),
+  );
+}
 // TODO: Build a Shrine Text Theme (103)
