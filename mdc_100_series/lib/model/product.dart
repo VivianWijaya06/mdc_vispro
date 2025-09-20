@@ -14,10 +14,10 @@
 import 'package:intl/intl.dart';
 
 enum Category {
-  all,
-  accessories,
-  clothing,
-  home,
+  All,
+  Snack,
+  Main,
+  Fried,
 }
 
 class Product {

@@ -26,6 +26,7 @@ flutter:
           weight: 500
   uses-material-design: true
   assets:
+    - assets/slanted_menu.png
     - assets/diamond.png
     - assets/cookpedia.png
     - assets/foto/
@@ -68,3 +69,5 @@ flutter:
     # - packages/shrine_images/35-0.jpg
     # - packages/shrine_images/36-0.jpg
     # - packages/shrine_images/37-0.jpg
+    # - packages/shrine_images/38-0.jpg
+    # - packages/shrine_images/39-0.jpg
